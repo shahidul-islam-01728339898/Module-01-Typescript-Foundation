@@ -57,7 +57,71 @@ const greetings = (greeting:string, fullName:string)=>{
 console.log(greetings("Hello", "Typescript")); // Output: Hello, TypeScript!
 
 const greet =() : void=>{
-    console.log("Hello, World!");
+    console.log("Hello, World! using void function");
 }
 
 greet(); // Output: Hello, World!
+
+
+// Object type, type alias and interface
+
+// Type alias
+type TUser = {
+    name: string;
+    age: number;
+    isActive:boolean;
+    action:()=>void;
+    badges: string[];
+}
+
+// create user object using the User type alias
+const user: TUser = {
+    name:"liton",
+    age: 123,
+    isActive: true,
+    action: () => console.log("Hello, World!"),
+    badges: ["admin", "editor", "subscriber"]
+}
+
+const user2: TUser={
+    name:"shahidul",
+    age: 234,
+    isActive: false, 
+    action: () => console.log("user2 action"),
+    badges: ["user", "contributor"]
+}
+
+// Interface
+type  Address ={
+    streetName: string;
+    city: string;
+    country: string;
+    holdingNaumber: number;
+}
+interface  IUser{
+    name: string;
+    age: number;
+    isActive:boolean;
+    action: () => void;
+    badges: string[];
+    address: Address;  // Address type is used here to define the structure of the address property
+}   
+
+// create user object using the IUser interface
+
+const user3: IUser = {
+    name: "wasenat",
+    age:5,
+    isActive: true,
+    action: ()=> console.log("user2 action"),
+    badges: ["admin", "editor", "subscriber"],
+    address: {
+        streetName: "123 Main St",
+        city: "New York",
+        country: "USA",
+        holdingNaumber: 123
+    }
+}
+console.log(user) // Output: { name: 'wasenat', age: 5, isActive: true, action: [Function: action], badges: [ 'admin', 'editor', 'subscriber' ] };
+console.log(user2) // Output: { name: 'shahidul', age: 234, isActive: false, action: [Function: action], badges: [ 'user', 'contributor' ] };
+console.log(user3) // Output: { name: 'wasenat', age: 5, isActive: true, action: [Function: action], badges: [ 'admin', 'editor', 'subscriber' ] };
